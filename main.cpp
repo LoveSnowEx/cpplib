@@ -1,39 +1,40 @@
 #include "list/list.hpp"
+#include "string/string.hpp"
 #include <cstdio>
 #include <list>
 #include <random>
 #include <cassert>
 
 void testList() {
-    size_t size = 10'000;
-    using std::list;
-    list<int> a;
+    size_t size = 100'000;
+    std::list<int> a;
     List<int> b;
     std::random_device rd;
     std::uniform_int_distribution<int> numGen(-1000, 1000);
-    std::uniform_int_distribution<int> actionGen(0, 1000);
-    for(int i = 0; i < size; ++i) {
+    std::uniform_int_distribution<int> actionGen(0, 8);
+
+    for(size_t i = 0; i < size; ++i) {
         int num = numGen(rd);
-        printf("(%d) push: %d\n", i, num);
+        printf("(%ld) push: %d\n", i, num);
         a.push_back(num);
         b.pushBack(num);
     }
 
-    printf("size: %d, %d\n", a.size(), b.size());
+    printf("size: %ld, %ld\n", a.size(), b.size());
     if(a.size() != b.size()) {
         printf("error: size not equal\n");
         exit(1);
     }
     // return;
 
-    int testTimes = size / 2;
+    size_t testTimes = size / 2;
 
-    for(int i = 0; i < testTimes; ++i) {
+    for(size_t i = 0; i < testTimes; ++i) {
         auto ita = a.begin();
         auto itb = b.begin();
         int action = actionGen(rd);
         int num = numGen(rd);
-        switch(action%8) {
+        switch(action) {
         case 0:
             a.push_front(num);
             b.pushFront(num);
@@ -83,13 +84,13 @@ void testList() {
         }
         if(a.size() != b.size()) {
             printf("act: %d\n", action%8);
-            printf("size: %d, %d\n", a.size(), b.size());
+            printf("size: %ld, %ld\n", a.size(), b.size());
             printf("error: size not equal\n");
             exit(1);
         }
     }
 
-    printf("size: %d, %d\n", a.size(), b.size());
+    printf("size: %ld, %ld\n", a.size(), b.size());
     if(a.size() != b.size()) {
         printf("error: size not equal\n");
         exit(1);
