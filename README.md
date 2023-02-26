@@ -7,6 +7,9 @@
 - list - 使用 std::shared_ptr 做為 list node 的 doubly linked list
 - vector - 能自動增長 capacity 的 vector，記憶體分配均攤 O(1)
 - string - 模仿 std::string，支援 iostream 的 stream operator (`>>` 和 `<<`)
+- algorithm
+  - sort
+    - mergesort
 
 ## Requirements
 
@@ -35,17 +38,20 @@ To run the code.
 ```text
 .
 ├── README.md
-├── list
-│   └── list.hpp
 ├── main.cpp
 ├── makefile
-├── string
-│   ├── string.cpp
-│   └── string.hpp
-├── test
-│   ├── list.hpp
-│   ├── string.hpp
-│   └── vector.hpp
-└── vector
+├── src
+│   ├── algorithm
+│   │   └── sort.hpp
+│   ├── list
+│   │   └── list.hpp
+│   ├── string
+│   │   ├── string.cpp
+│   │   └── string.hpp
+│   └── vector
+│       └── vector.hpp
+└── test
+    ├── list.hpp
+    ├── string.hpp
     └── vector.hpp
 ```
