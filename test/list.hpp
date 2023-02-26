@@ -1,4 +1,4 @@
-#include "../list/list.hpp"
+#include "../src/list/list.hpp"
 #include <cstdio>
 #include <list>
 #include <random>

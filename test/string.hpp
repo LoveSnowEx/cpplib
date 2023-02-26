@@ -1,4 +1,4 @@
-#include "../string/string.hpp"
+#include "../src/string/string.hpp"
 #include <iostream>
 #include <string>
 #include <cassert>

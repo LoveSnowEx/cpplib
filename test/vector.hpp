@@ -1,4 +1,4 @@
-#include "../vector/vector.hpp"
+#include "../src/vector/vector.hpp"
 #include <iostream>
 
 void testVector() {
